@@ -1,0 +1,106 @@
+CRYPTOGRAPHIC SCENARIOS
+
+Author: James Commons
+Date: October 6, 2024
+
+===== Questions =====
+
+1. Since we are assuming AITM attacks are impossible, the easiest way for Alice
+   to send an encrypted message is to used Diffie-Hellman key exchange to agree
+   on a shared secret from which they derive an AES key K. Alice can then
+   encrypt her message using AES(K, M), send the ciphertext C to Bob, and Bob
+   can decrypt using AES_D(K, C).
+
+   AES is a relatively fast algorithm, so it is suitable for long messages, and
+   it is secure, so Eve will not be able to decipher what is being said over
+   the wire. 
+
+2. Now, AITM attacks are possible, so Alice and Bob need to use asymetric 
+   encryption instead of Diffie-Hellman. Also, Alice does not care if Eve
+   listens in on the conversation, she just wants to be sure that Mal is not 
+   modifying the communications in some way. Alice want to send Bob the message
+   M. She will first compute the cryptographic hash H(M), and then encrypt the
+   hash with her private key using sig = E(S_A, H(M)). Alice will then append
+   this signature to the end of the message M and send it to Bob. Bob will
+   separate this signature from the rest of M, and decrypt using E(P_A, sig).
+   Finally, Bob can recompute H(M) and check with the signature to make sure
+   that the hashes are the same.
+
+   This works because if Mal were to modify M while leaving the same signature
+   in place, Bob would be able to detect the change because the hashes would
+   not be the same. Plus, even if Mal tried to send a different hash, Mal would
+   not be able to encrypt it using Alice's private key. So, when Bob decrypts
+   the signature using Alice's private key, the resulting plaintext is not the
+   hash of the modified message M, and Bob is still able to detect the change.
+
+3. Now, we need to combine the first two scenarios. First, Alice and Bob can 
+   exchange an AES key K using Diffie-Hellman as described in 1. Then, Alice
+   can encrypt using C = AES(K, M). Next, Alice can compute H(C) and encrypt
+   with her private key, sig = E(S_A, H(C)). Alice can then send Bob C || sig.
+   
+   This achieves both goals. Communication is secured because Eve can only know
+   what Alice and Bob are saying if she knows K, and she does not thanks to 
+   Diffie-Hellman. Also, Bob can be confident that Alice was the one who sent 
+   the message because the signature is encrypted using Alice's private key, 
+   which only Alice knows. The procedure Bob uses to verify and read the
+   message is first to decrypt the signature using E(P_A, sig) and recomputing
+   the hash as described in 2. Next, Bob can get the original message M by
+   running AES_D(K, C).
+
+4. One thing Alice could claim is that some third-party (like a competing
+   company), intercepted C and modified it along the way. In this case, the 
+   judge should be very skeptical of this claim, since if C was modified along
+   the way, the attacker would need to know Alice's private key to sign the 
+   modified document. Since we assume that Alice kept her key private, this
+   would require brute force, and is exceedingly unlikely.
+
+   Another thing Alice could claim is that someone physically broke into her
+   office and impersonated her using her own computer. I would also be
+   skeptical of this claim as a judge, and it would require a lot more
+   evidence, but I actually think this might be more likely than an adversary
+   brute forcing Alice's private key. It is conceivable that a rogue employee
+   had access to Alice's office and committed fraud (forged Alice's signature
+   or used a saved signature, which sometimes exists).
+
+   Finally, Alice could claim that C was modified by an adversary in just the 
+   right way that it did not change the cryptographic hash in the siganature.
+   This is also really unlikely, but it also depends on the hash function
+   being used. Some hash functions have been broken at this point, so an
+   adversary could have known how to modify C and end up with the same hash.
+   However, the chance that this modification is even recognizable as
+   a contract is pretty low. As a judge, I would therefore be skeptical.
+
+   This all goes to show that as long as we know a public key actually belongs
+   to Alice and we know she kept her private key secret, digital signatures are
+   pretty secure (if we don't know this, Alice could claim that P_A is not
+   actually her key, and this would be a valid argument).
+
+5. Lets say "bob.com" || P_B = TBS (to be signed). The certificate authority
+   would need to compute E(S_CA, H(TBS)). That is, CA encrypts the hash of the
+   TBS with their private key. This is similar to question 3, and works the
+   same way. 
+
+6. No. This is because Bob is yet to perform any calculations that would
+   require S_B. What Bob should do is sign all of his communications using
+   E(S_B, H(M)), and then Alice can decrypt the signature with P_B (which she
+   knows for sure because she can verify using CA's public key). Alice will
+   know that the communication came from Bob when she recomputes the hash of
+   the message and it is the same as the hash encrypted with Bob's secret key.
+
+7. 
+- If Mal were able to access Alice's computer, they could replace P_CA with 
+  their own public key. Then, when Bob sends Cert_B, Mal could modify it and 
+  sign with their own private key. Then, when Bob sends his signed message,
+  Mal could modify the message, sign it again with a different secret key, and 
+  Alice would still think the message was from Bob since Cert_B would have a 
+  different public key.
+- If Mal could somehow gain access to the CA key list, they could modify Bob's
+  public key to be a different key. Or, if Mal found out S_CA, they could forge
+  their own certificates.
+- This one is a little out there, but Mal could register a completely different
+  domain with the CA, say bob.com, except one of the b's is from a different
+  alphabet, so it has a different codepoint. If Alice were not careful, Mal
+  could trick her into clicking that link, which has a perfectly legitimate 
+  certificate signed by the CA, but it is not Bob, even though that is what 
+  Alice thinks.
+
