@@ -62,14 +62,46 @@ I could also disclose the bug publicly. This would be a bad idea since any
 malicous person could use that information to steal user data, but the bug
 would also be fixed relatively quickly by InstaToonz. This would almost
 certainly put me in legal trouble since I'm sure InstaToonz would be even more
-angry at me for doing this than disclosing privately.
+angry at me for doing this than disclosing the bug privately.
 
 Speaking of which, I could also disclose the bug privately to InstaToonz. This
 would give their engineers time to fix the bug, but it would also likely mean
 I would be facing a lawsuit. I could also be facing additional felony charges
-related to violating DMCA 
+related to violating DMCA, which means steep penalties and long jail times if
+convicted. 
 
+E.
+ACM section 1.2 advises to avoid harm. However, in this scenario, one of the
+parties is always likely to be harmed. If I were to stay silent about the bug,
+then hundreds of millions of people could be harmed. This harm would not be
+trivial either. Relationships could fail, stalkers could find out more
+information about someone they are stalking, and if financial data was leaked,
+identity theives could use people's information to steal millions of dollars
+and ruin many people's lives. On the other hand, if I were to disclose the bug,
+I could be harmed financially, as well as mentally and physically if I were to
+go to jail for my actions.
 
-I WILL BE FINISHED WITH THIS IN LIKE 5 MINUTES, BUT THE ASSIGNMENT WILL BE
-TURNED IN JUST AFTER 11:59, SORRY
+ACM section 1.3 advises to be honest and trustworthy. This suggests that if I 
+were to disclose the bug, I should not lie about how I came across it.
+
+ACM section 1.5 advises that I respect people's intellectual property. Ideally,
+I never violated DMCA when I found the bug, but I don't really think that even
+if I had done so, it goes against the code of ethics. DMCA is rather archaic
+after all.
+
+ACM section 1.6 and 1.7 say to respect privacy and confidentiality. This means
+that when I find the bug, I should not use it to gain access to people's data.
+
+F. 
+I recommend (to myself I guess) that I disclose the bug to the company
+anonymously. I would likely set up a burner email and get in touch with someone
+in the company. Ideally, I would find an engineer or IT professional on
+InstaToonz's website who I could email. I would have to take care to make
+sure that I am actually disclosing the bug to the right person. This would
+involve many back and forth emails, as well as verifying the domain in the
+email addresses. 
+
+As for the question about whether or not it is ethical to violate DMCA, I think
+in a scenario like this, absolutely (unless I found the bug while trying to
+bypass TPM for my own nefarious reasons).
 
