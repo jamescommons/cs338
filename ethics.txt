@@ -1,0 +1,75 @@
+Ethical analysis of a security-related scenario
+
+Author: James Commons
+Date: 10/16/2024
+
+I am choosing to analyze scenario #1: responsible reporting of security
+vulnerabilities. 
+
+A. 
+The main ethical question in this scenario is whether or not I should tell
+InstaToonz about the bug or not. On the one hand, the potential privacy breach
+is massive, as it could affect hundreds of millions of people. On the other
+hand, I have a reasonable belief that disclosing this bug directly to
+InstaToonz will land me in legal trouble. The ethical question at hand is
+whether or not the privacy of InstaToonz users is worth putting myself in legal
+jeopordy. Even if I never broke any laws, a lawsuit could still cost me a lot
+of money since I would need to hire a lawyer, and chances are InstaToonz would
+pull out all the stops since they sound pretty litigious. Of course, there is
+also the possibility that I did violate the DMCA, in which case, an additional
+question is whether or not it is ethical to break the law to protect people's
+data (victimless crime).
+
+B. 
+The first stakeholder I will consider are the InstaToonz users whose data
+might be compromised. They have a right to privacy. They are using InstaToonz's
+software with an assumption that their DMs are not visible to just anyone
+(maybe if a government agency has a warrant, sharing this data is justified, but 
+sharing the data to random people is not). The second stakeholder I will
+consider is InstaToonz. I don't know exactly how to phrase this, but they have
+a right to not be hacked. Basically, I'm trying to say that any intentional
+attempt to steal user data from InstaToonz, or compromize their IT
+infrastructure in any way, is (or should be) illegal. InstaToonz also has
+copyright, and they are protected by DMCA. This means that it is specifically
+illegal to bypass any copy-protection or encryption meant to protect
+InstaToonz's copyright (no matter how rudimentary these protections are). The
+final stakeholder I would like to consider is myself. I have a right to use the
+internet and play around with InstaToonz's software, but I don't have a right
+to intentionally try to break into their systems. However, if I were to
+discover a bug by accident, I should not be held liable for that vulnerability.
+
+C.
+It would be useful to know how I came accross the vulnerability. It is possible
+that I was accidentally doing something illegal (especially if I was poking
+around TPM stuff). It would also be useful to know if there is some third-party
+entity that I can trust to responsibly disclose the vulnerability to
+InstaToonz so I don't have to worry about the legal repercusions myself, perhaps 
+some sort of government agency.
+
+D.
+There are three things I could do. The first is that I could do nothing. In
+this case, my legal trouble would likely be non-existant, however I would be
+putting user data in jeopordy. If I were to do this, then a few things could
+happen:
+
+1. The bug goes unnoticed forever (unlikely)
+2. The bug gets noticed by an InstaToonz developer and gets fixed
+3. The bug gets noticed by another security researcher, who discloses it to
+   InstaToonz
+4. A malicious entity finds the bug and uses it to compromise user data
+
+I could also disclose the bug publicly. This would be a bad idea since any
+malicous person could use that information to steal user data, but the bug
+would also be fixed relatively quickly by InstaToonz. This would almost
+certainly put me in legal trouble since I'm sure InstaToonz would be even more
+angry at me for doing this than disclosing privately.
+
+Speaking of which, I could also disclose the bug privately to InstaToonz. This
+would give their engineers time to fix the bug, but it would also likely mean
+I would be facing a lawsuit. I could also be facing additional felony charges
+related to violating DMCA 
+
+
+I WILL BE FINISHED WITH THIS IN LIKE 5 MINUTES, BUT THE ASSIGNMENT WILL BE
+TURNED IN JUST AFTER 11:59, SORRY
+
