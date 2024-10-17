@@ -99,9 +99,10 @@ in the company. Ideally, I would find an engineer or IT professional on
 InstaToonz's website who I could email. I would have to take care to make
 sure that I am actually disclosing the bug to the right person. This would
 involve many back and forth emails, as well as verifying the domain in the
-email addresses. 
+email addresses. This would hopefully mean we get the best of both worlds. 
+InstaToonz's users' data is safe, and I don't face legal repercussions.
 
 As for the question about whether or not it is ethical to violate DMCA, I think
 in a scenario like this, absolutely (unless I found the bug while trying to
-bypass TPM for my own nefarious reasons).
+bypass TPM for my own nefarious reasons). 
 
